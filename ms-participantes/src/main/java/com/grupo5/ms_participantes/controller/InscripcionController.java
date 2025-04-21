@@ -6,6 +6,7 @@ import com.grupo5.ms_participantes.dto.InscripcionRequest;
 import com.grupo5.ms_participantes.entity.Inscripcion;
 import com.grupo5.ms_participantes.entity.Participante;
 import com.grupo5.ms_participantes.service.EventoRestClient;
+import com.grupo5.ms_participantes.service.EventoService;
 import com.grupo5.ms_participantes.service.InscripcionService;
 import com.grupo5.ms_participantes.service.ParticipanteService;
 import org.springframework.http.HttpStatus;
@@ -23,14 +24,14 @@ public class InscripcionController {
 
     private final InscripcionService inscripcionService;
     private final ParticipanteService participanteService;
-    private final EventoRestClient eventoRestClient;
+    private final EventoService eventoService;
 
     public InscripcionController(InscripcionService inscripcionService,
                                  ParticipanteService participanteService,
-                                 EventoRestClient eventoRestClient) {
+                                 EventoService eventoService) {
         this.inscripcionService = inscripcionService;
         this.participanteService = participanteService;
-        this.eventoRestClient = eventoRestClient;
+        this.eventoService = eventoService;
     }
 
     @PostMapping
@@ -39,7 +40,7 @@ public class InscripcionController {
             return ResponseEntity.badRequest().body("El ID del evento no puede ser nulo");
         }
 
-        EventoDTO evento = eventoRestClient.obtenerEventoPorId(inscripcionRequest.getIdEvento());
+        EventoDTO evento = eventoService.buscarEventoPorId(inscripcionRequest.getIdEvento());
         if (evento == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El evento no existe");
         }
@@ -116,7 +117,7 @@ public class InscripcionController {
                 dto.setNombre(participante.getNombres());
             }
 
-            EventoDTO evento = eventoRestClient.obtenerEventoPorId(inscripcion.getIdEvento());
+            EventoDTO evento = eventoService.buscarEventoPorId(inscripcion.getIdEvento());
             if (evento != null) {
                 dto.setNombreEvento(evento.getNombre());
                 dto.setLugarEvento(evento.getLugar());
