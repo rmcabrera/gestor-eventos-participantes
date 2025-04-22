@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "ms-eventos", url = "${ms.eventos.url}")
 public interface EventoRestClient {
 
-    @GetMapping("/{id}")
+    @GetMapping("/eventos/{id}")
     EventoDTO obtenerEventoPorId(@PathVariable("id") Long id);
 }
