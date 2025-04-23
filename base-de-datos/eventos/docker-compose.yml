@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  oracle-eventos:
+    container_name: oracle-eventos
+    image: container-registry.oracle.com/database/express:21.3.0-xe
+    environment:
+      ORACLE_PWD: eventos123
+      ORACLE_SID: XE
+      ORACLE_PDB: XEPDB1
+      ORACLE_CHARACTERSET: AL32UTF8
+    ports:
+      - "1521:1521"
+    volumes:
+      - oracle_eventos_data:/opt/oracle/oradata
+      - ./init_schema.sql:/opt/oracle/scripts/startup/init_schema.sql
+    networks:
+      - ms-network
+
+volumes:
+  oracle_eventos_data:
+
+networks:
+  ms-network:
+    external: true

@@ -1,6 +1,7 @@
+ALTER SESSION SET CONTAINER = XEPDB1;
+
 CREATE USER ms_participantes IDENTIFIED BY participantes123;
 GRANT CONNECT, RESOURCE TO ms_participantes;
-
 ALTER USER ms_participantes QUOTA UNLIMITED ON USERS;
 
 CREATE TABLE ms_participantes.participante (
@@ -21,3 +22,6 @@ CREATE TABLE ms_participantes.inscripcion (
     CONSTRAINT fk_participante FOREIGN KEY (id_participante)
       REFERENCES ms_participantes.participante(id)
 );
+
+
+COMMIT;
