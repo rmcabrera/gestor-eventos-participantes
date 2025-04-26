@@ -17,6 +17,12 @@ services:
       - ../base-de-datos/eventos/init_schema_eventos.sql:/opt/oracle/scripts/startup/init_schema_eventos.sql
     networks:
       - ms-network
+    healthcheck:
+      test: ["CMD", "sh", "-c", "echo 'SELECT 1 FROM DUAL;' | sqlplus system/eventos123@localhost:1521/XE"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   oracle-participantes:
     container_name: oracle-participantes
@@ -34,6 +40,12 @@ services:
       - ../base-de-datos/participantes/init_schema_participantes.sql:/opt/oracle/scripts/startup/init_schema_participantes.sql
     networks:
       - ms-network
+    healthcheck:
+      test: ["CMD", "sh", "-c", "echo 'SELECT 1 FROM DUAL;' | sqlplus system/participantes123@localhost:1521/XE"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   ms-eventos:
     image: mcabrerac/ms-eventos:latest
@@ -49,6 +61,12 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@//oracle-eventos:1521/XEPDB1
       - SPRING_DATASOURCE_USERNAME=ms_eventos
       - SPRING_DATASOURCE_PASSWORD=eventos123
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 30s
 
   ms-participantes:
     image: mcabrerac/ms-participantes:latest
@@ -65,6 +83,12 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@//oracle-participantes:1521/XEPDB1
       - SPRING_DATASOURCE_USERNAME=ms_participantes
       - SPRING_DATASOURCE_PASSWORD=participantes123
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://ms-eventos:8081/actuator/health"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 30s
 
 volumes:
   oracle_eventos_data:
