@@ -9,6 +9,9 @@ import com.grupo5.ms_participantes.service.EventoRestClient;
 import com.grupo5.ms_participantes.service.EventoService;
 import com.grupo5.ms_participantes.service.InscripcionService;
 import com.grupo5.ms_participantes.service.ParticipanteService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +37,13 @@ public class InscripcionController {
         this.eventoService = eventoService;
     }
 
+    @Operation(summary = "Registrar una nueva inscripción", description = "Registra una nueva inscripción para un participante en un evento")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Inscripción creada con éxito"),
+            @ApiResponse(responseCode = "400", description = "Error en la solicitud"),
+            @ApiResponse(responseCode = "404", description = "Evento no encontrado"),
+            @ApiResponse(responseCode = "409", description = "El participante ya está inscrito en este evento")
+    })
     @PostMapping
     public ResponseEntity<?> registrarInscripcion(@RequestBody InscripcionRequest inscripcionRequest) {
         if (inscripcionRequest.getIdEvento() == null) {
@@ -99,6 +109,11 @@ public class InscripcionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(guardada);
     }
 
+    @Operation(summary = "Listar inscripciones de un participante", description = "Devuelve una lista de todas las inscripciones de un participante")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Inscripciones encontradas"),
+            @ApiResponse(responseCode = "404", description = "Participante no encontrado")
+    })
     @GetMapping("/participante/{id}")
     public ResponseEntity<List<InscripcionDTO>> listarPorParticipante(@PathVariable Long id) {
         List<Inscripcion> inscripciones = inscripcionService.listarPorParticipante(id);
@@ -129,6 +144,11 @@ public class InscripcionController {
         return ResponseEntity.ok(inscripcionesDTO);
     }
 
+    @Operation(summary = "Obtener detalles de una inscripción", description = "Devuelve los detalles de una inscripción específica")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Inscripción encontrada"),
+            @ApiResponse(responseCode = "404", description = "Inscripción no encontrada")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<Inscripcion> obtenerInscripcion(@PathVariable Long id) {
         return inscripcionService.buscarPorId(id)
@@ -136,6 +156,12 @@ public class InscripcionController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
+    @Operation(summary = "Cancelar una inscripción", description = "Cancela una inscripción existente de un participante en un evento")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Inscripción cancelada con éxito"),
+            @ApiResponse(responseCode = "400", description = "La inscripción ya está cancelada"),
+            @ApiResponse(responseCode = "404", description = "Inscripción no encontrada")
+    })
     @PutMapping("/{id}/cancelar")
     public ResponseEntity<?> cancelarInscripcion(@PathVariable Long id) {
 
