@@ -1,6 +1,8 @@
 package com.grupo5.ms_participantes.service;
 
 import com.grupo5.ms_participantes.dto.EventoDTO;
+import com.grupo5.ms_participantes.feign.EventoRestClient;
+
 import org.springframework.stereotype.Service;
 
 @Service

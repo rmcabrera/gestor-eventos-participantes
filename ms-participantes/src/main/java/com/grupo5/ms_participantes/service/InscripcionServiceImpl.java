@@ -1,6 +1,7 @@
 package com.grupo5.ms_participantes.service;
 
 import com.grupo5.ms_participantes.entity.Inscripcion;
+import com.grupo5.ms_participantes.feign.EventoRestClient;
 import com.grupo5.ms_participantes.repository.InscripcionRepository;
 import org.springframework.stereotype.Service;
 

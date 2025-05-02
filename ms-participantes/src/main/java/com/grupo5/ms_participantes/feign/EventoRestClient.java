@@ -1,4 +1,4 @@
-package com.grupo5.ms_participantes.service;
+package com.grupo5.ms_participantes.feign;
 
 import com.grupo5.ms_participantes.dto.EventoDTO;
 import org.springframework.cloud.openfeign.FeignClient;

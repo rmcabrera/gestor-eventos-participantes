@@ -5,7 +5,6 @@ import com.grupo5.ms_participantes.dto.InscripcionDTO;
 import com.grupo5.ms_participantes.dto.InscripcionRequest;
 import com.grupo5.ms_participantes.entity.Inscripcion;
 import com.grupo5.ms_participantes.entity.Participante;
-import com.grupo5.ms_participantes.service.EventoRestClient;
 import com.grupo5.ms_participantes.service.EventoService;
 import com.grupo5.ms_participantes.service.InscripcionService;
 import com.grupo5.ms_participantes.service.ParticipanteService;
