@@ -10,5 +10,7 @@ COPY target/ms-gateway-0.0.1-SNAPSHOT.jar ms-gateway.jar
 # 4. Exponer el puerto utilizado por el microservicio.
 EXPOSE 9099
 
+RUN apt-get update && apt-get install -y curl
+
 # 5. Comando de inicio.
 ENTRYPOINT ["java", "-jar", "ms-gateway.jar"]

@@ -48,7 +48,7 @@ services:
       start_period: 60s
 
   ms-eventos:
-    image: mcabrerac/ms-eventos:latest
+    image: ms-eventos:1.0
     container_name: ms-eventos
     ports:
       - "8081:8081"
@@ -69,7 +69,7 @@ services:
       start_period: 30s
 
   ms-participantes:
-    image: mcabrerac/ms-participantes:latest
+    image: ms-participantes:1.0
     container_name: ms-participantes
     ports:
       - "8082:8082"
@@ -85,6 +85,28 @@ services:
       - SPRING_DATASOURCE_PASSWORD=participantes123
     healthcheck:
       test: ["CMD", "curl", "-f", "http://ms-eventos:8081/actuator/health"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 30s
+
+  ms-gateway:
+    image: ms-gateway:1.0
+    container_name: ms-gateway
+    ports:
+      - "9099:9099"
+    networks:
+      - ms-network
+    depends_on:
+      ms-eventos:
+        condition: service_healthy
+      ms-participantes:
+        condition: service_healthy
+    environment:
+      - ms.eventos.url=http://ms-eventos:8081
+      - ms.participantes.url=http://ms-participantes:8082
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
       interval: 30s
       timeout: 15s
       retries: 5
