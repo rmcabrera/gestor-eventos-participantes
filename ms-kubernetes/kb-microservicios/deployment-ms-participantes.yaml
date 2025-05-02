@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-participantes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-participantes
+  template:
+    metadata:
+      labels:
+        app: ms-participantes
+    spec:
+      containers:
+        - name: ms-participantes
+          image: mcabrerac/ms-participantes:1.0
+          ports:
+            - containerPort: 8082
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: PARTICIPANTES_DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: PARTICIPANTES_DB_PASSWORD
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: ms-participantes-config
+                  key: APP_NAME
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: ms-participantes-config
+                  key: SERVER_PORT
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: ms-participantes-config
+                  key: DB_URL
+            - name: DB_DRIVER
+              valueFrom:
+                configMapKeyRef:
+                  name: ms-participantes-config
+                  key: DB_DRIVER
+            - name: EVENTOS_SERVICE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: ms-participantes-config
+                  key: EVENTOS_SERVICE_URL

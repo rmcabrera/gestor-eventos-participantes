@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oracle-participantes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oracle-participantes
+  template:
+    metadata:
+      labels:
+        app: oracle-participantes
+    spec:
+      containers:
+        - name: oracle-participantes
+          image: container-registry.oracle.com/database/express:21.3.0-xe
+          ports:
+            - containerPort: 1521
+          env:
+            - name: ORACLE_SID
+              value: "XE"
+            - name: ORACLE_PDB
+              value: "XEPDB1"
+            - name: ORACLE_PWD
+              value: "participantes123"
+          volumeMounts:
+            - name: oracle-participantes-data
+              mountPath: /opt/oracle/oradata
+            - name: oracle-participantes-scripts
+              mountPath: /opt/oracle/scripts/startup
+      volumes:
+        - name: oracle-participantes-data
+          persistentVolumeClaim:
+            claimName: oracle-participantes-pvc
+        - name: oracle-participantes-scripts
+          configMap:
+            name: oracle-participantes-scripts

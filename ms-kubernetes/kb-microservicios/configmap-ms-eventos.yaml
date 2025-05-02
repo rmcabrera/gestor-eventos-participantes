@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ms-eventos-config
+data:
+  APP_NAME: ms-eventos
+  SERVER_PORT: "8081"
+  DB_URL: jdbc:oracle:thin:@oracle-db:1521/XEPDB1
+  DB_DRIVER: oracle.jdbc.OracleDriver
+  ACTUATOR_PORT: "8081"
