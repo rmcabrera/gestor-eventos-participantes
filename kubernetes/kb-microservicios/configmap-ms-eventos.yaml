@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: ms-eventos-config
+  namespace: gestion-ep-dev
 data:
   APP_NAME: ms-eventos
   SERVER_PORT: "8081"

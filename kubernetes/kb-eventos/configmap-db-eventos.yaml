@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: eventos-init-scripts
+  namespace: gestion-ep-dev
 data:
   init_schema_eventos.sql: |
     ALTER SESSION SET CONTAINER = XEPDB1;

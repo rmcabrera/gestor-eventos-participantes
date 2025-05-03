@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: ms-participantes-config
+  namespace: gestion-ep-dev
 data:
   APP_NAME: ms-participantes
   SERVER_PORT: "8082"

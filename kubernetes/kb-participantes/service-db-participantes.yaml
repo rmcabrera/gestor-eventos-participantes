@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: oracle-participantes
+  namespace: gestion-ep-dev
 spec:
   type: NodePort
   selector:
