@@ -1,19 +1,17 @@
-server:
-  port: ${SERVER_PORT:9099}
-
 spring:
-  application:
-    name: ${APP_NAME:ms-gateway}
-
   cloud:
     gateway:
       routes:
         - id: ms-eventos
-          uri: http://ms-eventos:8081
+          uri: lb://ms-eventos
           predicates:
-            - Path=/eventos/**
+            - Path=/api1/eventos/**
+          filters:
+            - StripPrefix=1
 
         - id: ms-participantes
-          uri: http://ms-participantes:8082
+          uri: lb://ms-participantes
           predicates:
-            - Path=/participantes/**,/inscripciones/**
+            - Path=/api2/participantes/**,/api2/inscripciones/**
+          filters:
+            - StripPrefix=1

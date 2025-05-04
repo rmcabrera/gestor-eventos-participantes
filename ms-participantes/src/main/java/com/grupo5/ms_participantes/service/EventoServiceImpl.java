@@ -1,23 +1,23 @@
 package com.grupo5.ms_participantes.service;
 
 import com.grupo5.ms_participantes.dto.EventoDTO;
-import com.grupo5.ms_participantes.feign.EventoRestClient;
+import com.grupo5.ms_participantes.feign.EventoFeignClient;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class EventoServiceImpl implements EventoService {
 
-    private final EventoRestClient eventoRestClient;
+    private final EventoFeignClient eventoFeignClient;
 
-    public EventoServiceImpl(EventoRestClient eventoRestClient) {
-        this.eventoRestClient = eventoRestClient;
+    public EventoServiceImpl(EventoFeignClient eventoFeignClient) {
+        this.eventoFeignClient = eventoFeignClient;
     }
 
     @Override
     public EventoDTO buscarEventoPorId(Long id) {
         try {
-            return eventoRestClient.obtenerEventoPorId(id);
+            return eventoFeignClient.obtenerEventoPorId(id);
         } catch (feign.FeignException.NotFound e) {
             return null;
         }
