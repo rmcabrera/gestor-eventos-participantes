@@ -8,6 +8,7 @@ spec:
     app: ms-gateway
   ports:
     - protocol: TCP
-      port: 80
+      port: 9099
       targetPort: 9099
-  type: LoadBalancer
+      nodePort: 30099
+  type: NodePort

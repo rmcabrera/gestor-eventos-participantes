@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ms-gateway-ingress
+  namespace: gestion-ep-dev
+spec:
+  rules:
+    - host: msgateway
+      http:
+        paths:
+          - path: /api1/eventos
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-gateway
+                port:
+                  number: 9099
+          - path: /api2/participantes
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-gateway
+                port:
+                  number: 9099
+          - path: /api2/inscripciones
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-gateway
+                port:
+                  number: 9099
