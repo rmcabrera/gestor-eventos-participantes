@@ -3,7 +3,7 @@ package com.grupo5.ms_participantes.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -14,6 +14,6 @@ public class InscripcionDTO {
     private Long idEvento;
     private String nombreEvento;
     private String lugarEvento;
-    private LocalDateTime fechaInscripcion;
+    private LocalDate fechaInscripcion;
     private String estado;
 }

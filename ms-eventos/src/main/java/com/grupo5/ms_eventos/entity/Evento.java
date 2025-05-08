@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,10 +22,10 @@ public class Evento {
     private String descripcion;
 
     @Column(name = "fecha_inicio", nullable = false)
-    private LocalDateTime fechaInicio;
+    private LocalDate  fechaInicio;
 
     @Column(name = "fecha_fin")
-    private LocalDateTime fechaFin;
+    private LocalDate  fechaFin;
 
     @Column(name = "lugar")
     private String lugar;

@@ -106,7 +106,7 @@ services:
       - ms.eventos.url=http://ms-eventos:8081
       - ms.participantes.url=http://ms-participantes:8082
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:9099/actuator/health"]
       interval: 30s
       timeout: 15s
       retries: 5

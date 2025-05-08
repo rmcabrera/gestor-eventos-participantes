@@ -1,10 +1,9 @@
 package com.grupo5.ms_participantes.entity;
 
-import com.grupo5.ms_participantes.dto.EventoDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "inscripcion")
@@ -22,7 +21,7 @@ public class Inscripcion {
     private Long idEvento;
 
     @Column(name = "fecha_inscripcion", nullable = false)
-    private LocalDateTime fechaInscripcion;
+    private LocalDate fechaInscripcion;
 
     @Column(name = "estado", nullable = false)
     private String estado = "registrado";

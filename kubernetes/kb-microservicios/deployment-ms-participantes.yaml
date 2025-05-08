@@ -58,7 +58,7 @@ spec:
             httpGet:
               path: /actuator/health/liveness
               port: 8082
-            initialDelaySeconds: 10
+            initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 5
             failureThreshold: 3
@@ -67,7 +67,7 @@ spec:
             httpGet:
               path: /actuator/health/readiness
               port: 8082
-            initialDelaySeconds: 10
+            initialDelaySeconds: 30
             periodSeconds: 30
             timeoutSeconds: 5
             failureThreshold: 3
@@ -79,3 +79,5 @@ spec:
             limits:
               memory: "800Mi"
               cpu: "800m"
+
+      restartPolicy: Always

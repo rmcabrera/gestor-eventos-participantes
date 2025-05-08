@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -101,7 +102,7 @@ public class InscripcionController {
         Inscripcion inscripcion = new Inscripcion();
         inscripcion.setParticipante(participante);
         inscripcion.setIdEvento(inscripcionRequest.getIdEvento());
-        inscripcion.setFechaInscripcion(LocalDateTime.now());
+        inscripcion.setFechaInscripcion(LocalDate.now());
         inscripcion.setEstado("registrado");
         Inscripcion guardada = inscripcionService.guardar(inscripcion);
 
