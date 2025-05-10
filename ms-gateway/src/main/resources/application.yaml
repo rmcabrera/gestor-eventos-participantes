@@ -4,25 +4,6 @@ server:
 spring:
   application:
     name: ms-gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: ms-eventos
-          uri: lb://ms-eventos
-          predicates:
-            - Path=/api1/eventos/**
-          filters:
-            - StripPrefix=1
-
-        - id: ms-participantes
-          uri: lb://ms-participantes
-          predicates:
-            - Path=/api2/participantes/**,/api2/inscripciones/**
-          filters:
-            - StripPrefix=1
 
 management:
   endpoints:

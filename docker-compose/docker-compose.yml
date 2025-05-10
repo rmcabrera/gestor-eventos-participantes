@@ -103,6 +103,7 @@ services:
       ms-participantes:
         condition: service_healthy
     environment:
+      - SPRING_PROFILES_ACTIVE=docker
       - ms.eventos.url=http://ms-eventos:8081
       - ms.participantes.url=http://ms-participantes:8082
     healthcheck:

@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: ms-eventos
+          uri: http://ms-eventos:8081
+          predicates:
+            - Path=/api1/eventos/**
+          filters:
+            - StripPrefix=1
+
+        - id: ms-participantes
+          uri: http://ms-participantes:8082
+          predicates:
+            - Path=/api2/participantes/**,/api2/inscripciones/**
+          filters:
+            - StripPrefix=1

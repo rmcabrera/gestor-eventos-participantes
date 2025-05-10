@@ -1,5 +1,6 @@
 package com.grupo5.ms_eventos.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,9 +23,11 @@ public class Evento {
     private String descripcion;
 
     @Column(name = "fecha_inicio", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate  fechaInicio;
 
     @Column(name = "fecha_fin")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate  fechaFin;
 
     @Column(name = "lugar")

@@ -23,6 +23,8 @@ spec:
               value: "9099"
             - name: APP_NAME
               value: "ms-gateway"
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
           resources:
             requests:
               memory: "512Mi"
