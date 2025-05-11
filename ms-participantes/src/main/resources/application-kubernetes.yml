@@ -1,0 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: kubernetes
+ms:
+  eventos:
+    url: null

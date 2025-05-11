@@ -19,6 +19,8 @@ spec:
           ports:
             - containerPort: 8082
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
@@ -49,11 +51,6 @@ spec:
                 configMapKeyRef:
                   name: ms-participantes-config
                   key: DB_DRIVER
-            - name: EVENTOS_SERVICE_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: ms-participantes-config
-                  key: EVENTOS_SERVICE_URL
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness

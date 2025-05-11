@@ -22,7 +22,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 60s
+      start_period: 300s
 
   oracle-participantes:
     container_name: oracle-participantes
@@ -45,7 +45,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 60s
+      start_period: 300s
 
   ms-eventos:
     image: mcabrerac/ms-eventos:1.0
@@ -64,9 +64,9 @@ services:
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
       interval: 30s
-      timeout: 15s
+      timeout: 10s
       retries: 5
-      start_period: 30s
+      start_period: 60s
 
   ms-participantes:
     image: mcabrerac/ms-participantes:1.0
@@ -79,6 +79,7 @@ services:
       oracle-participantes:
         condition: service_healthy
     environment:
+      - SPRING_PROFILES_ACTIVE=docker
       - ms.eventos.url=http://ms-eventos:8081
       - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@//oracle-participantes:1521/XEPDB1
       - SPRING_DATASOURCE_USERNAME=ms_participantes
@@ -86,9 +87,9 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://ms-eventos:8081/actuator/health"]
       interval: 30s
-      timeout: 15s
+      timeout: 10s
       retries: 5
-      start_period: 30s
+      start_period: 60s
 
   ms-gateway:
     image: mcabrerac/ms-gateway:1.0
@@ -109,9 +110,9 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9099/actuator/health"]
       interval: 30s
-      timeout: 15s
+      timeout: 10s
       retries: 5
-      start_period: 30s
+      start_period: 90s
 
 volumes:
   oracle_eventos_data:

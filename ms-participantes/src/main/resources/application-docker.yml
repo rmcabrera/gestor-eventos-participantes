@@ -1,0 +1,10 @@
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+feign:
+  client:
+    config:
+      ms-eventos:
+        url: ${EVENTOS_SERVICE_URL:http://ms-eventos:8081}
