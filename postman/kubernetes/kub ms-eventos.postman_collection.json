@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "aee74869-0254-4c96-a452-6aeb51d2d313",
-		"name": "ms-eventos",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22339754"
+		"_postman_id": "c3377703-5c76-4649-98c2-de2d2440e222",
+		"name": "kub ms-eventos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -12,12 +11,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/actuator/health",
+					"raw": "http://localhost:30081/actuator/health",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "30081",
 					"path": [
 						"actuator",
 						"health"
@@ -58,7 +57,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nombre\": \"Conferencia de Tecnología III\",\r\n  \"descripcion\": \"Evento enfocado en innovaciones tecnológicas\",\r\n  \"fechaInicio\": \"2025-05-10T09:00:00\",\r\n  \"fechaFin\": \"2025-05-10T17:00:00\",\r\n  \"lugar\": \"Centro de Convenciones\",\r\n  \"cupoMaximo\": 100\r\n}\r\n\r\n",
+					"raw": "{\r\n  \"nombre\": \"Conferencia de Tecnología III\",\r\n  \"descripcion\": \"Evento enfocado en innovaciones tecnológicas\",\r\n  \"fechaInicio\": \"2025-05-10\",\r\n  \"fechaFin\": \"2025-05-10\",\r\n  \"lugar\": \"Centro de Convenciones\",\r\n  \"cupoMaximo\": 100\r\n}\r\n\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -88,12 +87,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/eventos/3",
+					"raw": "http://localhost:30081/eventos/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "30081",
 					"path": [
 						"eventos",
 						"3"
@@ -111,12 +110,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/eventos/4",
+					"raw": "http://localhost:30081/eventos/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "30081",
 					"path": [
 						"eventos",
 						"4"
@@ -135,7 +134,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nombre\": \"Evento Tecnologias\",\r\n  \"descripcion\": \"Tecnologias\",\r\n  \"fechaInicio\": \"2025-04-30T10:00:00\",\r\n  \"fechaFin\": \"2025-04-30T13:00:00\",\r\n  \"lugar\": \"Nuevo lugar actualizado\",\r\n  \"cupoMaximo\": 3\r\n}\r\n",
+					"raw": "{\r\n  \"nombre\": \"Evento Tecnologias\",\r\n  \"descripcion\": \"Tecnologias\",\r\n  \"fechaInicio\": \"2025-04-30\",\r\n  \"fechaFin\": \"2025-04-30\",\r\n  \"lugar\": \"Nuevo lugar actualizado\",\r\n  \"cupoMaximo\": 3\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -143,12 +142,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/eventos/3",
+					"raw": "http://localhost:30081/eventos/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "30081",
 					"path": [
 						"eventos",
 						"3"

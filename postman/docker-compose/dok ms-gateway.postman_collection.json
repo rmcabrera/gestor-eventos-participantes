@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "d675f172-b6eb-4645-8a15-7341fe49cb1b",
+		"name": "dok ms-gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "eventos",
+			"item": [
+				{
+					"name": "actuatorHealth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarEventos",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api1/eventos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api1",
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearEvento",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Conferencia de Tecnologia III\",\r\n  \"descripcion\": \"Evento enfocado en innovaciones tecnológicas\",\r\n  \"fechaInicio\": \"2025-05-10\",\r\n  \"fechaFin\": \"2025-05-10\",\r\n  \"lugar\": \"Centro de Convenciones\",\r\n  \"cupoMaximo\": 100\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/api1/eventos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api1",
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarEvento",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api1/eventos/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api1",
+								"eventos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarEvento",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api1/eventos/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api1",
+								"eventos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarEvento",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Evento Tecnologías\",\r\n  \"descripcion\": \"Tecnologias\",\r\n  \"fechaInicio\": \"2025-04-30\",\r\n  \"fechaFin\": \"2025-04-30\",\r\n  \"lugar\": \"Nuevo lugar actualizado\",\r\n  \"cupoMaximo\": 3\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/api1/eventos/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api1",
+								"eventos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "participantes",
+			"item": [
+				{
+					"name": "listarParticipantes",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api2/participantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"participantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearParticipante",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombres\": \"Roberto\",\r\n  \"apellidos\": \"Pérez\",\r\n  \"email\": \"roberto.perez@example.com\",\r\n  \"telefono\": \"555-1234\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/api2/participantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"participantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarParticipante",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api2/participantes/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"participantes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarParticipante",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api2/participantes/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"participantes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarParticipante",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombres\": \"Juan qqqqq\",\r\n  \"apellidos\": \"Pérez García\",\r\n  \"email\": \"asdasd.perez@example.com\",\r\n  \"telefono\": \"555-4321\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/api2/participantes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"participantes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearInscripcion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"nuevo@participante.com\",\r\n  \"idEvento\": 3,\r\n  \"nombres\": \"Juan\",\r\n  \"apellidos\": \"Pérez\",\r\n  \"telefono\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9099/api2/inscripciones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"inscripciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listaInscripcionesParticipante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api2/inscripciones/participante/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"inscripciones",
+								"participante",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarInscripcion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api2/inscripciones/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"inscripciones",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelarInscripcion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9099/api2/inscripciones/3/cancelar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9099",
+							"path": [
+								"api2",
+								"inscripciones",
+								"3",
+								"cancelar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

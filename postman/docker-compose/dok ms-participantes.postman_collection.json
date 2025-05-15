@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "b0e7dedf-2663-4695-acc9-b49703849afc",
-		"name": "ms-participantes",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22339754"
+		"_postman_id": "40aff753-1d4a-4f63-9a42-1f8fbfa55b54",
+		"name": "dok ms-participantes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -12,12 +11,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:30082/participantes",
+					"raw": "http://localhost:8082/participantes",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "30082",
+					"port": "8082",
 					"path": [
 						"participantes"
 					]
@@ -34,7 +33,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/participantes/2",
+					"raw": "http://localhost:8082/participantes/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -42,7 +41,7 @@
 					"port": "8082",
 					"path": [
 						"participantes",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -97,7 +96,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/participantes/4",
+					"raw": "http://localhost:8082/participantes/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -105,7 +104,7 @@
 					"port": "8082",
 					"path": [
 						"participantes",
-						"4"
+						"1"
 					]
 				}
 			},
@@ -120,7 +119,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/participantes/4",
+					"raw": "http://localhost:8082/participantes/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -128,7 +127,7 @@
 					"port": "8082",
 					"path": [
 						"participantes",
-						"4"
+						"1"
 					]
 				}
 			},
@@ -152,12 +151,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:30082/inscripciones",
+					"raw": "http://localhost:8082/inscripciones",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "30082",
+					"port": "8082",
 					"path": [
 						"inscripciones"
 					]
